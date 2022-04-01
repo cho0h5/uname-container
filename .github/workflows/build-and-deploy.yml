@@ -26,7 +26,5 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: cho0h5/uname:latest
+        working-directory: python
+        run: docker buildx build --platform linux/amd64, linux/arm64, linux/arm/v7, linux/arm/v6 -t cho0h5/uname --push .
