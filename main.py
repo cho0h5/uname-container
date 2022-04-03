@@ -1,8 +1,8 @@
-import os
+import socket
 from fastapi import FastAPI
 
 app = FastAPI()
 
 @app.get("/")
 async def root():
-    return os.uname()
+    return socket.gethostname()
